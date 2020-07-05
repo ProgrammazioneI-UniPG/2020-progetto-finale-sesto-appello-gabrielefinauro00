@@ -616,8 +616,7 @@ static void imprevisto(struct Caverna** cunicolo) {
 void gioca () {
 
 
-  int conta_turni = 0;
-
+int conta_turni = 0;
 
 Scavatrice* scavatrice_arvais = (Scavatrice*) malloc(sizeof(Scavatrice));
 Scavatrice* scavatrice_hartonen = (Scavatrice*) malloc(sizeof(Scavatrice));
@@ -625,6 +624,9 @@ scavatrice_arvais->pos_attuale = primo_cunicolo_arvais;
 scavatrice_hartonen->pos_attuale = primo_cunicolo_hartonen;
 scavatrice_arvais -> serb_energia = 4;
 scavatrice_hartonen ->serb_energia = 4;
+scavatrice_arvais -> serb_raccolta = 0;
+scavatrice_hartonen ->serb_raccolta = 0;
+
 
 
 for(int i = 0; i < 10; i++) {
@@ -1426,7 +1428,7 @@ static void reset(){
       stato_hartonen = 0;
       caverne_arvais = 0;
       caverne_hartonen = 0;
-    
+
 
     }
 
