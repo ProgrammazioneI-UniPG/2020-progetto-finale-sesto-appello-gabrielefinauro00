@@ -1426,6 +1426,7 @@ static void reset(){
       stato_hartonen = 0;
       caverne_arvais = 0;
       caverne_hartonen = 0;
+    
 
     }
 
