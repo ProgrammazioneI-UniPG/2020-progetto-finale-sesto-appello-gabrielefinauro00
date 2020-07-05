@@ -42,21 +42,21 @@ static int cont_cancella_arvais = 0;//conta quante caverne Arvais sono state can
 static int cont_cancella_hartonen = 0;//conta quante caverne Hartonen sono state inserite
 static int stato_hartonen = 0; //indica se sono state inserite tutte le caverne Hartonen
 static int stato_arvais = 0;//indica se sono state inserite tutte le caverne Arvais
-static char back [30];
-static char scelta_dir[30]; //Array per la scelta della direzione
-static char scelta_mappa[30]; //array per la scelta della mappa da stampare
-static char scelta_cancella[30];//array per scegliere a quale famiglia cancellare l'ultima caverna
-static char scelta_re_ins[30];//array per scegliere a quale famiglia re-inserire le caverne dopo che sono state cancellate
+static char back [100];
+static char scelta_dir[100]; //Array per la scelta della direzione
+static char scelta_mappa[100]; //array per la scelta della mappa da stampare
+static char scelta_cancella[100];//array per scegliere a quale famiglia cancellare l'ultima caverna
+static char scelta_re_ins[100];//array per scegliere a quale famiglia re-inserire le caverne dopo che sono state cancellate
 static int caverne_arvais = 0;//conta quante caverne Arvais sono state inserite
 static int caverne_hartonen = 0;//conta quante caverne Hartonen sono state inserite
 static char scelta_gioca[100];//array per la scelta di quale azione compiere nel menu
-static char scelta_aggiunta [40];//Array per la scelta dell'aggiunta di melassa
-static char scelta_abbatti[40];//array per scegliere dove abbattere
+static char scelta_aggiunta [100];//Array per la scelta dell'aggiunta di melassa
+static char scelta_abbatti[100];//array per scegliere dove abbattere
 static int serb_arvais = 0; //contiene il puntatore al serbatoio di energia arvais
 static int serb_hartonen = 0;//contiene il puntatore al serb di energia di hartonen
 static int serb_arvais_raccolta = 0;//contiene il puntatore al serbatoio di raccolta arvais
 static int serb_hartonen_raccolta = 0;//contiene il puntatore al serbatoio di raccolta di hartonen
-static char scelta_u [40];
+static char scelta_u [100];
 
 
 
@@ -1303,10 +1303,18 @@ static void gestione_nuovostato (struct Caverna** cunicolo){
 //GESTISCE LO SCONTRO QUANDO LE SCAVATRICE SI INCONTRANO
 static void scontro(){
 
-  if ( serb_arvais > serb_hartonen)
-    printf("\nLa famiglia Arvais ha vinto lo scontro\n");
-    else
+  if ( serb_arvais == serb_hartonen){
+    printf("Nessuna delle due famiglie è riuscita a privileggiare sull'altra\n");
+
+  }
+    else if (serb_arvais > serb_hartonen){
+      printf("\nLa famiglia Arvais ha vinto lo scontro\n");
+
+    }
+    else {
+
     printf("\nLa famiglia Hartonen ha vinto lo scontro\n");
+  }
     menu_esci();
 
   }
@@ -1337,15 +1345,19 @@ static void reset(){
 static void fine_gioca() {
   printf("\n\nSiete entrambi arrivati alla fine del gioco\n");
   printf("Vincerà la famiglia che ha piu melassa nel serbatoio di raccolta\n");
-      if ( serb_arvais_raccolta > serb_hartonen_raccolta){
-        printf("\nLa famiglia Arvais ha vinto lo scontro\n");
+      if ( serb_arvais_raccolta == serb_hartonen_raccolta){
+        printf("\nLa sfida non ha un vincitore \n");
+        printf("In quanto, è comparso un baco che ha risucchiato tutte le raccolte\n");
       }
-        else{
-        printf("\nLa famiglia Hartonen ha vinto lo scontro\n");
-}
-      menu_esci();
-
-
+        else {
+            if ( serb_arvais_raccolta >= serb_hartonen_raccolta){
+              printf("\nLa famiglia Arvais ha vinto lo scontro\n");
+              }
+              else {
+                printf("\nLa famiglia Hartonen ha vinto lo scontro\n");
+                }
+              }
+          menu_esci();
     }
 
 //RANDOMIZZA LO STATO DELLE NUOVE CAVERNE AGGIRATE

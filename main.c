@@ -10,7 +10,7 @@ int main () {
 time_t t;
 srand((unsigned)time(&t));
 
-char scelta [30];
+char scelta [100];
 
 
 do {
