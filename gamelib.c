@@ -28,7 +28,7 @@ static void scontro();
 static void reset();
 static void fine_gioca();
 static void gestione_stato_aggira(struct Caverna** cunicolo);
-
+static void menu_esci ();
 
 
 
@@ -56,6 +56,7 @@ static int serb_arvais = 0; //contiene il puntatore al serbatoio di energia arva
 static int serb_hartonen = 0;//contiene il puntatore al serb di energia di hartonen
 static int serb_arvais_raccolta = 0;//contiene il puntatore al serbatoio di raccolta arvais
 static int serb_hartonen_raccolta = 0;//contiene il puntatore al serbatoio di raccolta di hartonen
+static char scelta_u [40];
 
 
 
@@ -972,28 +973,8 @@ p_scavatrice= p_scavatrice + 3;
     printf("\n\nLa famiglia %s ha perso in quanto ha esaurito la sua energia\n",(primo_cunicolo_arvais==(*primo_cunicolo))? "Arvais":"Hartonen" );
       printf("La famiglia %s ha vinto\n", (primo_cunicolo_arvais==(*primo_cunicolo))? "Hartonen":"Arvais");
 
-      int scelta_u;
-      do {
 
-      printf("Premi 1 per tornare al menu principale\n");
-      printf("premi 0 per uscire dal gioco\n");
-      scanf("%d", &scelta_u);
-
-      if(scelta_u != 0 && scelta_u != 1)
-        printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-      } while(scelta_u != 0 && scelta_u != 1);
-      if (scelta_u == 0){
-      printf("Hai scelto di uscire dal gioco\n");
-      printf("GAME OVER!\n");
-      exit(0);
-    }
-    else {
-      printf("Hai scelto di tornare al menù iniziale\n");
-      reset();
-      main();
-    }
+    menu_esci();
     }
   }
 
@@ -1017,27 +998,8 @@ p_scavatrice= p_scavatrice + 3;
       printf("la famiglia %s ha trovato l'uscita\n", (primo_cunicolo_arvais==(*primo_cunicolo))? "Arvais": "Hartonen");
       printf("Il gioco è terminato\n");
 
-      int scelta_u;
-      do {
 
-      printf("Premi 1 per tornare al menu principale\n");
-      printf("premi 0 per uscire dal gioco\n");
-      scanf("%d", &scelta_u);
-
-      if(scelta_u != 0 && scelta_u != 1)
-        printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-      } while(scelta_u != 0 && scelta_u != 1);
-      if (scelta_u == 0){
-      printf("Hai scelto di uscire dal gioco\n");
-      printf("GAME OVER!\n");
-      exit(0);
-    }
-    else {
-      printf("Hai scelto di tornare al menù iniziale\n");
-      main();
-    }
+    menu_esci();
     }
     else {
       printf("Non puoi uscire\n");
@@ -1141,28 +1103,7 @@ static void gestione_imprevisto (struct Scavatrice** famiglia, struct Caverna** 
             printf("\n\nLa famiglia %s ha perso\n",(primo_cunicolo_arvais==(*primo_cunicolo))? "Arvais":"Hartonen" );
               printf("La famiglia %s ha vinto\n", (primo_cunicolo_arvais==(*primo_cunicolo))? "Hartonen":"Arvais");
 
-              int scelta_u;
-              do {
-
-              printf("Premi 1 per tornare al menu principale\n");
-              printf("premi 0 per uscire dal gioco\n");
-              scanf("%d", &scelta_u);
-
-              if(scelta_u != 0 && scelta_u != 1)
-                printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-              } while(scelta_u != 0 && scelta_u != 1);
-              if (scelta_u == 0){
-              printf("Hai scelto di uscire dal gioco\n");
-              printf("GAME OVER!\n");
-              exit(0);
-            }
-            else {
-              printf("Hai scelto di tornare al menù iniziale\n");
-              reset();
-              main();
-            }
+              menu_esci();
             }
             }
               else {
@@ -1223,28 +1164,7 @@ static void gestione_stato (struct Scavatrice** famiglia, struct Caverna** primo
                   printf("\n\nLa famiglia %s ha perso in quanto ha esaurito la sua energia\n",(primo_cunicolo_arvais==(*primo_cunicolo))? "Arvais":"Hartonen" );
                     printf("La famiglia %s ha vinto\n", (primo_cunicolo_arvais==(*primo_cunicolo))? "Hartonen":"Arvais");
 
-                    int scelta_u;
-                    do {
-
-                    printf("Premi 1 per tornare al menu principale\n");
-                    printf("premi 0 per uscire dal gioco\n");
-                    scanf("%d", &scelta_u);
-
-                    if(scelta_u != 0 && scelta_u != 1)
-                      printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-                    } while(scelta_u != 0 && scelta_u != 1);
-                    if (scelta_u == 0){
-                    printf("Hai scelto di uscire dal gioco\n");
-                    printf("GAME OVER!\n");
-                    exit(0);
-                  }
-                  else {
-                    printf("Hai scelto di tornare al menù iniziale\n");
-                    reset();
-                    main();
-                  }
+                    menu_esci();
                   }
 
 
@@ -1387,27 +1307,8 @@ static void scontro(){
     printf("\nLa famiglia Arvais ha vinto lo scontro\n");
     else
     printf("\nLa famiglia Hartonen ha vinto lo scontro\n");
+    menu_esci();
 
-    int scelta_u;
-    do {
-
-    printf("Premi 1 per tornare al menu principale\n");
-    printf("premi 0 per uscire dal gioco\n");
-    scanf("%d", &scelta_u);
-    if(scelta_u != 0 && scelta_u != 1)
-      printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-    } while(scelta_u != 0 && scelta_u != 1);
-    if (scelta_u == 0){
-    printf("Hai scelto di uscire dal gioco\n");
-    exit(0);
-    }
-    else {
-    printf("Hai scelto di tornare al menù iniziale\n");
-    reset();
-    main();
-    }
   }
 
 //RESETTA TUTTO ALLA FINE DEL GIOCO
@@ -1442,27 +1343,8 @@ static void fine_gioca() {
         else{
         printf("\nLa famiglia Hartonen ha vinto lo scontro\n");
 }
-        int scelta_u;
-        do {
+      menu_esci();
 
-        printf("Premi 1 per tornare al menu principale\n");
-        printf("premi 0 per uscire dal gioco\n");
-        scanf("%d", &scelta_u);
-        if(scelta_u != 0 && scelta_u != 1)
-          printf("Errore di inserimento, reinserire la tua scelta\n");
-
-
-        } while(scelta_u != 0 && scelta_u != 1);
-        if (scelta_u == 0){
-        printf("Hai scelto di uscire dal gioco\n");
-        printf("GAME OVER!!\n");
-        exit(0);
-        }
-        else {
-        printf("Hai scelto di tornare al menù iniziale\n");
-        reset();
-        main();
-        }
 
     }
 
@@ -1482,4 +1364,39 @@ static void gestione_stato_aggira(struct Caverna** cunicolo){
   else {
     (*cunicolo)-> Stato = SPECIALE;
   }
+}
+
+static void menu_esci (){
+
+  do {
+
+  printf("Premi 1 per tornare al menu principale\n");
+  printf("Premi 2 per uscire dal gioco\n");
+  scanf("%s", scelta_u);
+
+  while(scelta_u[1] != '\0'){
+    printf("Errore di inserimento, reinserire la tua scelta\n");
+    scanf("%s", scelta_u);
+
+}
+
+switch(scelta_u[0]){
+  case '1':
+  printf("Hai scelto di tornare al menù iniziale\n");
+  reset();
+  main();
+  break;
+  case '2':
+  printf("Hai scelto di uscire dal gioco\n");
+  printf("GAME OVER!\n");
+  exit(0);
+  break;
+  default:
+  printf("Scelta non valida \n");
+  scelta_u[0] = 55;
+  break;
+}
+
+} while(scelta_u [0] != 49 && scelta_u[0]!= 50);
+
 }
