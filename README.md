@@ -3,11 +3,13 @@ Template progetto finale per l'esame di Programmazione I con Laboratorio a.a. 20
 
 Inserire
 
-Nome:
+Nome: Gabriele
 
-Cognome:
+Cognome: Finauro
 
-Matricola:
+Matricola: 325664
 
 
 ed eventuali note sulla realizzazione del progetto, come nuove funzionalità aggiunte o modificate rispetto al testo del progetto assegnato.
+
+Lo scontro finale quando le due scavatrice si incontrano è basato su un confronto dei serbatoi di energia e la famiglia che avrà maggior energia vincerà.
