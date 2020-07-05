@@ -1134,10 +1134,15 @@ static void gestione_serbatoio (struct Scavatrice** famiglia){
     (*famiglia) ->  serb_raccolta = 10;
     printf("\nIl tuo serbatoio di energia è di 10 unità\n");
   }
-  else {
+  else if((*famiglia)-> serb_raccolta <0) {
+    (*famiglia) ->  serb_raccolta = 0;
+    printf("\nIl tuo serbatoio di energia è di 10 unità\n");
+  }
+    else{
     printf("\nIl tuo serbatoio di raccolta è di %d unità", (*famiglia)-> serb_raccolta);
   }
-}
+  }
+
 
 //GESTISCE LO STATO DELLE CAVERNE
 static void gestione_stato (struct Scavatrice** famiglia, struct Caverna** primo_cunicolo) {
