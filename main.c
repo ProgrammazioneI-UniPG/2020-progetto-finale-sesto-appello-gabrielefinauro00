@@ -4,6 +4,7 @@
 
 void crea_cunicoli();
 void gioca();
+int cunicoli = 0;
 
 int main () {
 time_t t;
@@ -35,10 +36,18 @@ do {
 
     switch (scelta[0]) {
       case '1':
+      cunicoli = 1;
       crea_cunicoli();
       break;
       case '2':
-      gioca();
+      if(cunicoli == 0){
+        scelta[0] = 55;
+        }
+        else {
+          cunicoli = 0;
+          gioca();
+        }
+
       break;
       case '3':
       printf("Gioco terminato\n");
