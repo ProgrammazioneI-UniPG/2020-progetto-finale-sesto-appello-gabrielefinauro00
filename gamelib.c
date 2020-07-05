@@ -1304,7 +1304,8 @@ static void gestione_nuovostato (struct Caverna** cunicolo){
 static void scontro(){
 
   if ( serb_arvais == serb_hartonen){
-    printf("Nessuna delle due famiglie è riuscita a privileggiare sull'altra\n");
+    printf("Le due famiglie durante lo scontro hanno distrutto entrambe le scavatrici\n");
+    printf("Perciò, nessuna delle due famiglie ha vinto\n");
 
   }
     else if (serb_arvais > serb_hartonen){
