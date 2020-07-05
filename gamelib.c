@@ -1074,7 +1074,7 @@ static void gestione_melassa(struct Scavatrice** famiglia){
               (*famiglia)->serb_energia = (*famiglia) -> serb_energia + 3;
               break;
               case '2':
-              (*famiglia)->serb_raccolta = (*famiglia) -> serb_energia + 3;
+              (*famiglia)->serb_raccolta = (*famiglia) -> serb_raccolta + 3;
               break;
               default:
               printf("Scelta non valida\n");
@@ -1132,11 +1132,11 @@ static void gestione_serbatoio (struct Scavatrice** famiglia){
 
   if((*famiglia) -> serb_raccolta > 10){
     (*famiglia) ->  serb_raccolta = 10;
-    printf("\nIl tuo serbatoio di energia è di 10 unità\n");
+    printf("\nIl tuo serbatoio di raccolta è di 10 unità\n");
   }
   else if((*famiglia)-> serb_raccolta <0) {
     (*famiglia) ->  serb_raccolta = 0;
-    printf("\nIl tuo serbatoio di energia è di 10 unità\n");
+    printf("\nIl tuo serbatoio di raccolta è di 0 unità\n");
   }
     else{
     printf("\nIl tuo serbatoio di raccolta è di %d unità", (*famiglia)-> serb_raccolta);
@@ -1284,21 +1284,21 @@ static void gestione_nuovostato (struct Caverna** cunicolo){
 
 
         if (num>1 && num <=20){
-            /*printf("La nuova caverna è di tipo ACCIDENTATA\n");*/
+
             (*cunicolo)  -> Stato = ACCIDENTATA;
           }
          else if (num>20 && num <=(20+p_speciale)){
-          /*  printf("La nuova caverna è di tipo NORMALE\n");*/
+
             (*cunicolo) -> Stato =NORMALE;
 
           }
         else if (num>(20+p_speciale) && num <=(20+p_speciale+p_normale)){
-          /*  printf("La nuova caverna è di tipo SPECIALE\n");*/
+
             (*cunicolo)  -> Stato = SPECIALE;
 
           }
         else if (num>(20+p_speciale+p_normale) && num <=100){
-          /*  printf("Hai incontrato l'Uscita\n");*/
+
             (*cunicolo) -> Stato = USCITA;
 
           }
